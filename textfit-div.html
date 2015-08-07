@@ -1,0 +1,78 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
+<link rel="import" href="../iron-flex-layout/classes/iron-flex-layout.html">
+<script src="../textfit/textFit.js"></script>
+<dom-module id="textfit-div" class="flex">
+    <style>
+    :host {
+        height: 100%;
+        width: 100%;
+    }
+    
+    .fullHeight {
+        height: 100%;
+        width: 100%;
+    }
+    </style>
+    <template>
+        <div id="fitMe" class="fullHeight">[[text]]</div>
+    </template>
+    <script>
+    Polymer({
+        is: 'textfit-div',
+        behaviors: [
+            Polymer.IronResizableBehavior
+        ],
+        properties: {
+            text: {
+                observer: '_textChanged',
+                type: String,
+                value: ''
+            },
+            isAttached: {
+                type: Boolean,
+                value: false
+            },
+            horizontalCenter: {
+              type: Boolean,
+              value: false
+            },
+            verticalCenter: {
+              type: Boolean,
+              value: false
+            }
+        },
+        listeners: {
+            'iron-resize': '_onIronResize'
+        },
+        attached: function() {
+            this.isAttached = true;
+            this.doFitMe();
+        },
+        dettached: function() {
+            this.isAttached = false;
+        },
+        _textChanged: function(newText, oldText) {
+            if (newText !== oldText) {
+                this.doFitMe();
+            }
+        },
+        _onIronResize: function() {
+            this.doFitMe();
+        },
+        doFitMe: function() {
+            if (!this.isAttached)
+                return;
+            try {
+                setTimeout(function() {
+                    textFit(this.$.fitMe, {
+                        maxFontSize: 200, alignHoriz: this.horizontalCenter, alignVert: this.verticalCenter
+                    });
+                }.bind(this), 150);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    });
+    </script>
+</dom-module>
