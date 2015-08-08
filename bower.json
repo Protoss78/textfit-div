@@ -4,6 +4,11 @@
   "authors": [
     "Roman Kaufmann <roman.kaufmann.at@gmail.com>"
   ],
+  "keywords": [
+    "polymer",
+    "web-components",
+    "textFit"
+  ]
   "license": "MIT",
   "ignore": [
     "**/.*",
