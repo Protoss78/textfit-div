@@ -8,7 +8,7 @@
     "polymer",
     "web-components",
     "textFit"
-  ]
+  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
