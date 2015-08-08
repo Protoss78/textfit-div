@@ -9,6 +9,7 @@
     "web-components",
     "textFit"
   ],
+  "main": "textfit-div.html",
   "license": "MIT",
   "ignore": [
     "**/.*",
