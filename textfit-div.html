@@ -91,6 +91,8 @@
         doFitMe: function() {
             if (!this.isAttached)
                 return;
+            if(this.$.fitMe.innerHTML.length < 1)
+                return;
             try {
                 setTimeout(function() {
                     textFit(this.$.fitMe, {
