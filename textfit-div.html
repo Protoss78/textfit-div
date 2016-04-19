@@ -44,6 +44,30 @@
             verticalCenter: {
               type: Boolean,
               value: false
+            },
+            multiLine: {
+              type: Boolean,
+              value: false
+            },
+            detectMultiLine: {
+              type: Boolean,
+              value: true
+            },
+            minFontSize: {
+              type: Number,
+              value: 6
+            },
+            maxFontSize: {
+              type: Number,
+              value: 200
+            },
+            reProcess: {
+              type: Boolean,
+              value: true
+            },
+            widthOnly: {
+              type: Boolean,
+              value: false
             }
         },
         listeners: {
@@ -70,7 +94,14 @@
             try {
                 setTimeout(function() {
                     textFit(this.$.fitMe, {
-                        maxFontSize: 200, alignHoriz: this.horizontalCenter, alignVert: this.verticalCenter
+                      alignHoriz: this.horizontalCenter,
+                      alignVert: this.verticalCenter,
+                      multiLine: this.multiLine,
+                      detectMultiLine: this.detectMultiLine,
+                      minFontSize: this.minFontSize,
+                      maxFontSize: this.maxFontSize,
+                      reProcess: this.reProcess,
+                      widthOnly: this.widthOnly
                     });
                 }.bind(this), 150);
             } catch (e) {
