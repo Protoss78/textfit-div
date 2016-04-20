@@ -72,25 +72,35 @@
             ignoreErrors: {
               type: Boolean,
               value: false
+            },
+            manualFire: {
+              type: Boolean,
+              value: false
             }
         },
         listeners: {
             'iron-resize': '_onIronResize'
         },
         attached: function() {
-            this.isAttached = true;
-            this.doFitMe();
+          if(this.manualFire)
+            return;
+
+          this.isAttached = true;
+          this.doFitMe();
         },
         dettached: function() {
             this.isAttached = false;
         },
         _textChanged: function(newText, oldText) {
-            if (newText !== oldText) {
+            if (newText !== oldText && !this.manualFire) {
                 this.doFitMe();
             }
         },
         _onIronResize: function() {
-            this.doFitMe();
+          if(this.manualFire)
+            return;
+
+          this.doFitMe();
         },
         doFitMe: function() {
             if (!this.isAttached)
