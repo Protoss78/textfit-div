@@ -68,6 +68,10 @@
             widthOnly: {
               type: Boolean,
               value: false
+            },
+            ignoreErrors: {
+              type: Boolean,
+              value: false
             }
         },
         listeners: {
@@ -107,6 +111,7 @@
                     });
                 }.bind(this), 150);
             } catch (e) {
+              if(!this.ignoreErrors)
                 console.warn(e);
             }
         }
