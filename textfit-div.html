@@ -93,22 +93,18 @@
                 return;
             if(this.$.fitMe.innerHTML.length < 1)
                 return;
-            try {
-                setTimeout(function() {
-                    textFit(this.$.fitMe, {
-                      alignHoriz: this.horizontalCenter,
-                      alignVert: this.verticalCenter,
-                      multiLine: this.multiLine,
-                      detectMultiLine: this.detectMultiLine,
-                      minFontSize: this.minFontSize,
-                      maxFontSize: this.maxFontSize,
-                      reProcess: this.reProcess,
-                      widthOnly: this.widthOnly
-                    });
-                }.bind(this), 150);
-            } catch (e) {
-                console.warn(e);
-            }
+          setTimeout(function() {
+            textFit(this.$.fitMe, {
+              alignHoriz: this.horizontalCenter,
+              alignVert: this.verticalCenter,
+              multiLine: this.multiLine,
+              detectMultiLine: this.detectMultiLine,
+              minFontSize: this.minFontSize,
+              maxFontSize: this.maxFontSize,
+              reProcess: this.reProcess,
+              widthOnly: this.widthOnly
+            });
+          }.bind(this), 150);
         }
     });
     </script>
