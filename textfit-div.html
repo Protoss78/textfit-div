@@ -69,10 +69,6 @@
               type: Boolean,
               value: false
             },
-            ignoreErrors: {
-              type: Boolean,
-              value: false
-            },
             manualFire: {
               type: Boolean,
               value: false
@@ -86,7 +82,9 @@
             return;
 
           this.isAttached = true;
-          this.doFitMe();
+
+          // Below we run async because there is a known bug with polymer attached callback and clientWidth parameter used in textFit plugin
+          this.async(this.doFitMe);
         },
         dettached: function() {
             this.isAttached = false;
@@ -108,20 +106,17 @@
             if(this.$.fitMe.innerHTML.length < 1)
                 return;
             try {
-                setTimeout(function() {
-                    textFit(this.$.fitMe, {
-                      alignHoriz: this.horizontalCenter,
-                      alignVert: this.verticalCenter,
-                      multiLine: this.multiLine,
-                      detectMultiLine: this.detectMultiLine,
-                      minFontSize: this.minFontSize,
-                      maxFontSize: this.maxFontSize,
-                      reProcess: this.reProcess,
-                      widthOnly: this.widthOnly
-                    });
-                }.bind(this), 150);
+              textFit(this.$.fitMe, {
+                alignHoriz: this.horizontalCenter,
+                alignVert: this.verticalCenter,
+                multiLine: this.multiLine,
+                detectMultiLine: this.detectMultiLine,
+                minFontSize: this.minFontSize,
+                maxFontSize: this.maxFontSize,
+                reProcess: this.reProcess,
+                widthOnly: this.widthOnly
+              });
             } catch (e) {
-              if(!this.ignoreErrors)
                 console.warn(e);
             }
         }
