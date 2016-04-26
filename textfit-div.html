@@ -78,10 +78,10 @@
             'iron-resize': '_onIronResize'
         },
         attached: function() {
+          this.isAttached = true;
+
           if(this.manualFire)
             return;
-
-          this.isAttached = true;
 
           // Below we run async because there is a known bug with polymer attached callback and clientWidth parameter used in textFit plugin
           this.async(this.doFitMe);
