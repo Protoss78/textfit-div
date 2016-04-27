@@ -44,37 +44,80 @@
             verticalCenter: {
               type: Boolean,
               value: false
+            },
+            multiLine: {
+              type: Boolean,
+              value: false
+            },
+            detectMultiLine: {
+              type: Boolean,
+              value: true
+            },
+            minFontSize: {
+              type: Number,
+              value: 6
+            },
+            maxFontSize: {
+              type: Number,
+              value: 200
+            },
+            reProcess: {
+              type: Boolean,
+              value: true
+            },
+            widthOnly: {
+              type: Boolean,
+              value: false
+            },
+            manualFire: {
+              type: Boolean,
+              value: false
             }
         },
         listeners: {
             'iron-resize': '_onIronResize'
         },
         attached: function() {
-            this.isAttached = true;
-            this.doFitMe();
+          this.isAttached = true;
+
+          if(this.manualFire)
+            return;
+
+          // Below we run async because there is a known bug with polymer attached callback and clientWidth parameter used in textFit plugin
+          this.async(this.doFitMe);
         },
         dettached: function() {
             this.isAttached = false;
         },
         _textChanged: function(newText, oldText) {
-            if (newText !== oldText) {
+            if (newText !== oldText && !this.manualFire) {
                 this.doFitMe();
             }
         },
         _onIronResize: function() {
-            this.doFitMe();
+          if(this.manualFire)
+            return;
+
+          this.doFitMe();
         },
         doFitMe: function() {
             if (!this.isAttached)
                 return;
+            if(this.$.fitMe.innerHTML.length < 1)
+                return;
             try {
-                setTimeout(function() {
-                    textFit(this.$.fitMe, {
-                        maxFontSize: 200, alignHoriz: this.horizontalCenter, alignVert: this.verticalCenter
-                    });
-                }.bind(this), 150);
+              textFit(this.$.fitMe, {
+                alignHoriz: this.horizontalCenter,
+                alignVert: this.verticalCenter,
+                multiLine: this.multiLine,
+                detectMultiLine: this.detectMultiLine,
+                minFontSize: this.minFontSize,
+                maxFontSize: this.maxFontSize,
+                reProcess: this.reProcess,
+                widthOnly: this.widthOnly
+              });
             } catch (e) {
-                console.log(e);
+                console.warn(e);
             }
         }
     });
