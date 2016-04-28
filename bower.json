@@ -1,0 +1,32 @@
+{
+  "name": "textfit-div",
+  "version": "0.1.0",
+  "authors": [
+    "Roman Kaufmann <roman.kaufmann.at@gmail.com>"
+  ],
+  "keywords": [
+    "polymer",
+    "web-components",
+    "textFit"
+  ],
+  "main": "textfit-div.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "textfit": "STRML/textFit#^2.3.0",
+    "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#^1.0.0",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.3",
+    "paper-styles": "PolymerElements/paper-styles#^1.0.11",
+    "paper-card": "PolymerElements/paper-card#^1.1.1"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "^4.0.0"
+  }
+}
