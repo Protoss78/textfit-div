@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "textfit": "STRML/textFit#^2.3.0",
-    "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#^1.0.0",
+    "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#^1.0.5",
     "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.3",
     "paper-styles": "PolymerElements/paper-styles#^1.0.11",
     "paper-card": "PolymerElements/paper-card#^1.1.1"
