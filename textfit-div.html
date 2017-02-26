@@ -210,6 +210,26 @@
       this.doFitMe();
     },
     /**
+    * Changes text color by setting style, like
+    *
+    * `style="color: textColor"`
+    */
+    setTextColor(textColor) {
+      if (typeof textColor === "string" && textColor.length > 0) {
+        this.$$("span.textFitted").style['color'] = textColor;
+      }
+    },
+    /**
+    * Changes background color of text by setting style, like:
+    *
+    * `style="background-color: backgroundColor"`
+    */
+    setBackgroundColor: function(backgroundColor) {
+      if (typeof backgroundColor === "string" && backgroundColor.length > 0) {
+        this.$$("span.textFitted").style['background-color'] = backgroundColor;
+      }
+    },
+    /**
      * Calls textfit to trigger font-size recalculation.
      */
     doFitMe: function() {
