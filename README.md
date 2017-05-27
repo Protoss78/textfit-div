@@ -27,7 +27,7 @@ Example:
 ```
 -->
 ```html
-<div class="layout horizontal">
-<textfit-div class="flex" text="Hello" width="400px" height="200px"></textfit-div>
+<div style="width: 300px; height: 300px;">
+<textfit-div style="width: 300px; height: 300px;" text="Hello"></textfit-div>
 </div>
 ```
