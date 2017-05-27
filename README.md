@@ -28,6 +28,6 @@ Example:
 -->
 ```html
 <div class="layout horizontal">
-<textfit-div class="flex" text="Hello"></textfit-div>
+<textfit-div class="flex" text="Hello" width="400px" height="200px"></textfit-div>
 </div>
 ```
