@@ -2,6 +2,7 @@
 
 # textfit-div
 A web component that uses <a href="https://github.com/STRML/textFit">STRML/textFit</a> to fit the text size to the available space. When the parent is resized, the text size is adjusted accordingly.
+Important: Make sure that textfit-div is put into a container that has an actual size.
 
 Example:
 <!--
