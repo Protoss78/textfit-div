@@ -27,16 +27,3 @@ Example:
 ```html
 <textfit-div text="Hello"></textfit-div>
 ```
-
-
-
-```html
-<div class="layout horizontal flex wrap">
-    <div class="layout horizontal flex">
-          <textfit-div horizontal-center vertical-center text="Hey!"></textfit-div>
-    </div>
-    <div class="layout horizontal flex">
-        <textfit-div text="Good Evening!"></textfit-div>
-    </div>
-</div>
-```
