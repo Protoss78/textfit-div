@@ -58,7 +58,7 @@ Example:
         <textfit-div class="fullHeight flex styled" text="Styled text"></textfit-div>
     </div>
 </div>
-<paper-card heading="" image="" elevation="1" animated-shadow="false">
+<paper-card>
     <textfit-div class="fullHeight flex"
                  text="A little bit more text to showcase an extreme sample with multi-line support enabled to demonstrate wrapping capabilities"
                  horizontal-center multi-line></textfit-div>
