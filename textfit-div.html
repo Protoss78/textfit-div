@@ -226,10 +226,10 @@
                     return;
                 if (this.$.fitMe.innerHTML.length < 1)
                     return;
-                if (this.$.fitMe.clientHeight <= 0 || this.$.fitMe.clientWidth <= 0) {
+                /*if (this.$.fitMe.clientHeight <= 0 || this.$.fitMe.clientWidth <= 0) {
                     console.debug('textfit-div has no size yet, therefore the text can not be fitted.');
                     return;
-                }
+                }*/
                 try {
                     textFit(this.$.fitMe, {
                         alignHoriz: this.horizontalCenter,
