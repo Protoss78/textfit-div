@@ -10,6 +10,7 @@ Example:
 <custom-element-demo>
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
     <link rel="import" href="textfit-div.html">
     <style is="custom-style">
       #container {
@@ -26,5 +27,7 @@ Example:
 ```
 -->
 ```html
-<textfit-div text="Hello"></textfit-div>
+<div class="layout horizontal">
+<textfit-div class="flex" text="Hello"></textfit-div>
+</div>
 ```
