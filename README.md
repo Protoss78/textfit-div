@@ -12,7 +12,7 @@ Example:
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
     <link rel="import" href="textfit-div.html">
-    <style is="custom-style">
+    <style is="custom-style" include="iron-flex">
       #container {
         display: block;
         height: 400px;
