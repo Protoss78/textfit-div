@@ -39,7 +39,7 @@
                 @apply --textfit-div;
             }
         </style>
-        <div id="fitMe" class="fullHeight">[[text]]</div>
+        <div id="fitMe" class="fullHeight">{{text}}</div>
     </template>
     <script>
         Polymer({
@@ -207,7 +207,11 @@
              */
             _textChanged: function (newText, oldText) {
                 if (newText !== oldText && !this.manualFire) {
-                    this.doFitMe();
+                    var span = this.shadowRoot.querySelector('.textFitted');
+                    if (span) {
+                        span.innerHTML = newText;
+                    }
+                    this.async(this.doFitMe);
                 }
             },
             /**
@@ -216,7 +220,7 @@
             _onIronResize: function () {
                 if (this.manualFire)
                     return;
-                this.doFitMe();
+                this.async(this.doFitMe);
             },
             /**
              * Calls textfit to trigger font-size recalculation.
@@ -231,6 +235,8 @@
                     return;
                 }
                 try {
+                    console.log('FitMe:');
+                    console.log(this.$.fitMe);
                     textFit(this.$.fitMe, {
                         alignHoriz: this.horizontalCenter,
                         alignVert: this.verticalCenter,
