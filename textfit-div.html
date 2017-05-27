@@ -216,7 +216,6 @@
             _onIronResize: function () {
                 if (this.manualFire)
                     return;
-
                 this.doFitMe();
             },
             /**
@@ -226,6 +225,8 @@
                 if (!this.isAttached)
                     return;
                 if (this.$.fitMe.innerHTML.length < 1)
+                    return;
+                if (this.$.fitMe.clientHeight <= 0 || this.$.fitMe.clientWidth <= 0)
                     return;
                 try {
                     textFit(this.$.fitMe, {
