@@ -5,36 +5,60 @@ A web component that uses <a href="https://github.com/STRML/textFit">STRML/textF
 Important: Make sure that textfit-div is put into a container that has an actual size.
 
 Example:
-<!--
+<!---
 ```
 <custom-element-demo>
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
     <link rel="import" href="textfit-div.html">
-    <custom-style>
-        <style is="custom-style" include="iron-flex">
-            .fullHeight {
-                height: 90%;
-                width: 90%;
-            }
-
-            paper-card {
-                height: 450px;
-                width: calc(100% - 2em);
-                margin: 1em;
-            }
-        </style>
-    </custom-style>
-    <div id="container">
-      <next-code-block></next-code-block>
-    </div>
+        <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
+        <link rel="import" href="../paper-card/paper-card.html">
+        <link rel="import" href="../paper-styles/demo-pages.html">
+        <custom-style>
+            <style is="custom-style" include="iron-flex">
+                .horizontal-section {
+                    height: 400px;
+                    min-width: 300px;
+                    margin: 1em;
+                    padding: 1em;
+                }
+    
+                .fullHeight {
+                    height: 90%;
+                    width: 90%;
+                }
+    
+                paper-card {
+                    height: 450px;
+                    width: calc(100% - 2em);
+                    margin: 1em;
+                }
+    
+                .styled {
+                    --textfit-div: {
+                        color: darkgreen;
+                        text-align: center;
+                        font-style: italic;
+                        font-weight: bold;
+                    };
+                }
+            </style>
+        </custom-style>
+    <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
 ```
 -->
 ```html
-<paper-card>
+<div class="layout horizontal flex wrap">
+    <div class="horizontal-section layout horizontal flex">
+        <textfit-div class="fullHeight flex" text="Hey!"></textfit-div>
+    </div>
+    <div class="horizontal-section layout horizontal flex">
+        <textfit-div class="fullHeight flex styled" text="Styled text"></textfit-div>
+    </div>
+</div>
+<paper-card heading="" image="" elevation="1" animated-shadow="false">
     <textfit-div class="fullHeight flex"
                  text="A little bit more text to showcase an extreme sample with multi-line support enabled to demonstrate wrapping capabilities"
                  horizontal-center multi-line></textfit-div>
